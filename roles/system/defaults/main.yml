@@ -1,0 +1,91 @@
+---
+  osx_ui_settings:
+    # Expand save panel by default
+    - defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
+    - defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode2 -bool true
+
+    # Expand print panel by default
+    - defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
+    - defaults write NSGlobalDomain PMPrintingExpandedStateForPrint2 -bool true
+
+    # Save to disk by default (instead of iCloud)
+    - defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
+
+    # Check for updates daily
+    - defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1
+
+  osx_input_settings:
+    # Trackpad: enable tap to click for this user and for the login screen
+    - defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
+    - defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
+    - defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
+
+    # Enable full keyboard access for all controls
+    - defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
+
+    # Disable press-and-hold for keys in favor of key repeat
+    - defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
+
+    # Set a blazingly fast keyboard repeat rate
+    - defaults write NSGlobalDomain KeyRepeat -int 0
+
+    # Disable smart dashes
+    - defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
+
+    # Disable smart quotes
+    - defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
+
+    # Disable spell checking
+    - defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
+
+  osx_screen_settings:
+    # Require password immediately after sleep or screen saver begins
+    - defaults write com.apple.screensaver askForPassword -int 1
+    - defaults write com.apple.screensaver askForPasswordDelay -int 0
+
+  osx_finder_settings:
+    # Set home folder as the default location for new Finder windows
+    - defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}/"
+
+    # Finder: show status bar
+    - defaults write com.apple.finder ShowStatusBar -bool true
+
+    # Finder: allow text selection in Quick Look
+    - defaults write com.apple.finder QLEnableTextSelection -bool true
+
+    # When performing a search, search the current folder by default
+    - defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
+
+    # Disable the warning when changing a file extension
+    - defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
+
+    # Show the ~/Library folder
+    - chflags nohidden ~/Library
+
+  osx_dock_settings:
+    # Set the icon size of Dock items to 36 pixels
+    - defaults write com.apple.dock tilesize -int 36
+
+    # Enable magnification
+    - defaults write com.apple.dock magnification -bool true
+
+    # Set max icon size
+    - defaults write com.apple.dock largesize -int 66
+
+    # Minimize windows into their application’s icon
+    - defaults write com.apple.dock minimize-to-application -bool true
+
+    # Hide indicator lights for open applications in the Dock
+    - defaults write com.apple.dock show-process-indicators -bool false
+
+    # Don’t automatically rearrange Spaces based on most recent use
+    - defaults write com.apple.dock mru-spaces -bool false
+
+  osx_safari_settings:
+    # Prevent Safari from opening ‘safe’ files automatically after downloading
+    - defaults write com.apple.Safari AutoOpenSafeDownloads -bool false
+
+    # Enable Safari develop menu
+    - defaults write com.apple.Safari IncludeDevelopMenu -bool true
+    - defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
+    - defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled -bool true

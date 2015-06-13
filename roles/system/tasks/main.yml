@@ -1,0 +1,30 @@
+---
+  - name: Applying general UI/UX settings
+    shell: "{{ item }}"
+    sudo: no
+    with_items: osx_ui_settings
+
+  - name: Applying input settings
+    shell: "{{ item }}"
+    sudo: no
+    with_items: osx_input_settings
+
+  - name: Applying screen settings
+    shell: "{{ item }}"
+    sudo: no
+    with_items: osx_screen_settings
+
+  - name: Applying finder settings
+    shell: "{{ item }}"
+    sudo: no
+    with_items: osx_finder_settings
+
+  - name: Applying dock settings
+    shell: "{{ item }}"
+    sudo: no
+    with_items: osx_dock_settings
+
+  - name: Applying safari settings
+    shell: "{{ item }}"
+    sudo: no
+    with_items: osx_safari_settings
