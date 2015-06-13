@@ -5,3 +5,4 @@
 
     roles:
       - { role: system, tags: ['system'] }
+      - { role: terminal, tags: ['terminal'] }
