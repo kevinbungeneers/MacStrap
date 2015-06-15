@@ -10,6 +10,10 @@
     homebrew_tap:
       name: caskroom/cask
 
+  - name: Tap Homebrew cask versions
+    homebrew_tap:
+      name: caskroom/versions
+
   - name: Install Homebrew cask
     homebrew:
       name: brew-cask
