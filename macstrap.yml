@@ -6,6 +6,7 @@
     vars_files:
       - variables/common.yml
       - variables/git.yml
+      - variables/homebrew.yml
 
     roles:
       - { role: system, tags: ['system'] }

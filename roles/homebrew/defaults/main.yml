@@ -1,5 +1,4 @@
 ---
-  homebrew_packages:
-    - htop-osx
+  homebrew_packages: []
 
   homebrew_casks: []
