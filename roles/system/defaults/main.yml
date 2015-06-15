@@ -17,6 +17,9 @@
     # Set date format in menubar
     - defaults write com.apple.menuextra.clock DateFormat -string "HH:mm"
 
+    # Show battery percentage
+    - defaults write com.apple.menuextra.battery ShowPercent -string "YES"
+
     # Flash the time separators
     - defaults write com.apple.menuextra.clock FlashDateSeparators -bool true
 
