@@ -1,0 +1,55 @@
+---
+  # General Sublime settings
+  sublime_general_preferences:
+    font_face: "Source Code Pro"
+    font_size: 14
+    bold_folder_labels: true
+    detect_identation: false
+    file_exclude_patterns:
+      - "*.pyc"
+      - "*.pyo"
+      - "*.exe"
+      - "*.dll"
+      - "*.obj"
+      - "*.o"
+      - "*.a"
+      - "*.lib"
+      - "*.so"
+      - "*.dylib"
+      - "*.ncb"
+      - "*.sdf"
+      - "*.suo"
+      - "*.pdb"
+      - "*.idb"
+      - ".DS_Store"
+      - "*.class"
+      - "*.psd"
+      - "*.db"
+      - "._*"
+    trim_trailing_white_space_on_save: true
+    highlight_line: true
+    highlight_modified_tabs: true
+    show_encoding: true
+    line_padding_bottom: 2
+    line_padding_top: 2
+    open_files_in_new_window: false
+    scroll_past_end: true
+    use_tab_stops: true
+    rulers:
+      - 80
+      - 120
+    translate_tabs_to_spaces: true
+    tab_size: 4
+
+
+  # Syntax specific settings for PHP
+  sublime_php_preferences:
+    tab_size: 4
+
+  # Sytax specific settings for Javascript
+  sublime_javascript_preferences:
+    tab_size: 2
+
+  # Syntax specific settings for CSS
+  sublime_css_preferences:
+    tab_size: 2

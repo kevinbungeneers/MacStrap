@@ -13,3 +13,4 @@
       - { role: dotfiles, tags: ['dotfiles'] }
       - { role: git, tags: ['git'] }
       - { role: homebrew, tags: ['homebrew'] }
+      - { role: sublimetext, tags: ['sublimetext'] }
