@@ -1,0 +1,17 @@
+---
+  - name: Install GIT
+    homebrew:
+      name: git
+      state: present
+      update_homebrew: yes
+
+  - name: Set .gitconfig file
+    template:
+      src: gitconfig.j2
+      dest: ~/.gitconfig
+
+  - name: Set .gitignore file
+    template:
+      src: gitignore.j2
+      dest: "{{ git_config.core.excludesfile }}"
+    when: git_ignore and git_config.core is defined and git_config.core.excludesfile is defined

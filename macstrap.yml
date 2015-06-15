@@ -1,9 +1,14 @@
 ---
   - hosts: all
     connection: local
-    user: kevin
+    user: "{{ user }}"
+
+    vars_files:
+      - variables/common.yml
+      - variables/git.yml
 
     roles:
       - { role: system, tags: ['system'] }
       - { role: terminal, tags: ['terminal'] }
       - { role: dotfiles, tags: ['dotfiles'] }
+      - { role: git, tags: ['git'] }
