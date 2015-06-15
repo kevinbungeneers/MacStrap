@@ -1,8 +1,9 @@
 ---
   - hosts: all
     connection: local
-    user: "{{ user }}"
+    user: kevin
 
     roles:
       - { role: system, tags: ['system'] }
       - { role: terminal, tags: ['terminal'] }
+      - { role: dotfiles, tags: ['dotfiles'] }

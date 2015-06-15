@@ -1,0 +1,12 @@
+---
+  - name: Make ZSH the default shell
+    shell: chsh -s /bin/zsh
+
+  - name: Clone prezto into homedirectory
+    git:
+      repo: https://github.com/kevinbungeneers/prezto.git
+      dest: "~/.zprezto"
+      recursive: yes
+
+  - name: Install prezto runcoms
+    script: install_runcoms.sh
