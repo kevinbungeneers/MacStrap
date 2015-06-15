@@ -1,0 +1,9 @@
+---
+  - name: Install Vagrant
+    homebrew_cask:
+      name: vagrant
+      state: present
+
+  - name: Install Vagrant plugins
+    shell: "vagrant plugin install {{ item }}"
+    with_items: vagrant_plugins
