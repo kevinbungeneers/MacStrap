@@ -2,7 +2,7 @@
   git_config:
     user:
       name: "{{ full_name }}"
-      emai: "{{ email_address }}"
+      email: "{{ email_address }}"
     credential:
         helper: osxkeychain
     color:
@@ -19,3 +19,14 @@
     core:
       editor: vim
       excludesfile: "~/.cvsignore"
+    push:
+      default: tracking
+    alias:
+      co: checkout
+      st: status
+      t: tag -n
+      l: log --graph --date=short
+      changes: log --pretty=format:\"%h %cr %cn %Cgreen%s%Creset\" --name-status
+      short: log --pretty=format:\"%h %cr %cn %Cgreen%s%Creset\"
+      changelog: log --pretty=format:\" * %s\"
+      shortnocolor: log --pretty=format:\"%h %cr %cn %s\"
