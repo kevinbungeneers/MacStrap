@@ -8,3 +8,6 @@
     - chrome
     - transmit
     - virtualbox
+
+  homebrew_taps:
+    - homebrew/binary
