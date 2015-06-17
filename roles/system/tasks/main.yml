@@ -26,3 +26,16 @@
   - name: Applying safari settings
     shell: "{{ item }}"
     with_items: osx_safari_settings
+
+  - name: Check if /etc/exports exists
+    stat:
+      path: /etc/exports
+    register: nfs_exports
+
+  - name: Create /etc/exports if it doesn't exists
+    sudo: yes
+    file:
+      path: /etc/exports
+      state: touch
+      mode: 0644
+    when: nfs_exports.exists is defined and nfs_exports.exists
