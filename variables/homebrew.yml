@@ -1,6 +1,7 @@
 ---
   homebrew_packages:
     - htop-osx
+    - packer
 
   homebrew_casks:
     - firefox
