@@ -16,3 +16,4 @@
       - { role: homebrew, tags: ['homebrew'] }
       - { role: sublimetext, tags: ['sublimetext'] }
       - { role: vagrant, tags: ['vagrant'] }
+      - { role: docker, tags: ['docker'] }

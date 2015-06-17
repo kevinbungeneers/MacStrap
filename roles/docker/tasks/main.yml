@@ -1,0 +1,61 @@
+---
+  - name: Install boot2docker
+    homebrew:
+      name: boot2docker
+      state: present
+      update_homebrew: yes
+
+  - name: Have boot2docker started at login
+    copy:
+      src: boot2docker.plist
+      dest: ~/Library/LaunchAgents/boot2docker.plist
+
+  - name: Load boot2docker
+    shell: launchctl load ~/Library/boot2docker.plist
+
+  - name: Initialize boot2docker
+    shell: boot2docker init
+
+  - name: Stop boot2docker
+    shell: boot2docker stop
+
+  - name: Remove VirtualBox shared folder
+    shell: VBoxManage sharedfolder remove boot2docker-vm --name Users
+
+  - name: Authorize boot2docker to mount your home by using NFS
+    sudo: yes
+    lineinfile:
+      dest: /etc/exports
+      line: "\"{{ lookup('env', 'HOME') }}\" -alldirs -mapall={{ user }} -network {{ boot2docker_network }} -mask {{ boot2docker_mask }}"
+
+  - name: Restart NFS daemon
+    sudo: yes
+    shell: nfsd checkexports && nfsd restart
+
+  - name: Create boot2docker profile
+    template:
+      src: profile.j2
+      dest: ~/.boot2docker/profile
+    notify: Restart boot2docker
+
+  - name: Start boot2docker
+    shell: boot2docker start --vbox-share=disable
+
+  - name: Create bootlocal.sh script
+    template:
+      src: bootlocal.sh.j2
+      dest: /tmp/bootlocal.sh
+
+  - name: Upload bootlocal.sh script to boot2docker VM
+    shell: scp -i ~/.ssh/id_boot2docker -P 2022 /tmp/bootlocal.sh docker@localhost:~
+    notify: Restart boot2docker
+
+  - name: Move bootlocal.sh script to its place
+    shell: boot2docker ssh "sudo mv /home/docker/bootlocal.sh /var/lib/boot2docker/bootlocal.sh && sudo chmod 755 /var/lib/boot2docker/bootlocal.sh"
+    notify: Restart boot2docker
+
+  - name: Install docker-compose
+    homebrew:
+      name: docker-compose
+      state: present
+      update_homebrew: yes

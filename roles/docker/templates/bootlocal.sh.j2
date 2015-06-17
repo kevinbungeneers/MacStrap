@@ -1,0 +1,3 @@
+#!/bin/sh
+
+sudo mkdir -p {{ lookup('env', 'HOME') }} && sudo mount -t nfs -o noatime,soft,nolock,vers=3,udp,proto=udp,rsize=8192,wsize=8192,namlen=255,timeo=10,retrans=3,nfsvers=3 -v 192.168.59.3:{{ lookup('env', 'HOME') }} {{ lookup('env', 'HOME')}}

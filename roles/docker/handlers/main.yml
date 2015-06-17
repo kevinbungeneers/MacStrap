@@ -1,0 +1,9 @@
+---
+  - name: Start boot2docker
+    shell: boot2docker start --vbox-share=disable
+
+  - name: Stop boot2docker
+    shell: boot2docker stop
+
+  - name: Restart boot2docker
+    shell: boot2docker restart --vbox-share=disable
