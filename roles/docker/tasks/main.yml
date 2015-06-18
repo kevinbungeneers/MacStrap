@@ -48,7 +48,6 @@
 
   - name: Upload bootlocal.sh script to boot2docker VM
     shell: scp -i ~/.ssh/id_boot2docker -P 2022 /tmp/bootlocal.sh docker@localhost:~
-    notify: Restart boot2docker
 
   - name: Move bootlocal.sh script to its place
     shell: boot2docker ssh "sudo mv /home/docker/bootlocal.sh /var/lib/boot2docker/bootlocal.sh && sudo chmod 755 /var/lib/boot2docker/bootlocal.sh"
