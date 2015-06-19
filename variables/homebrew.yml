@@ -7,7 +7,10 @@
     - firefox
     - chrome
     - transmit
+    - vlc
+    - atom
     - virtualbox
+    - vmware-fusion
 
   homebrew_taps:
     - homebrew/binary
