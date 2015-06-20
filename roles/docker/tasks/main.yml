@@ -58,3 +58,12 @@
       name: docker-compose
       state: present
       update_homebrew: yes
+
+  - name: Export docker variables
+    lineinfile:
+      dest: ~/.zshrc
+      line: "{{ item }}"
+    with_items:
+      - "export DOCKER_HOST=tcp://{{ boot2docker_ip }}:2376"
+      - "export DOCKER_CERT_PATH=~/.boot2docker/certs/boot2docker-vm"
+      - "export DOCKER_TLS_VERIFY=1"
