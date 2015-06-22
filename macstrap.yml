@@ -7,12 +7,12 @@
       - variables/common.yml
       - variables/git.yml
       - variables/homebrew.yml
-      - variabls/vagrant.yml
+      - variables/vagrant.yml
 
     roles:
       - { role: system, tags: ['system'] }
       - { role: terminal, tags: ['terminal'] }
-      - { role: dotfiles, tags: ['dotfiles'] }
+      - { role: zsh, tags: ['zsh'] }
       - { role: git, tags: ['git'] }
       - { role: homebrew, tags: ['homebrew'] }
       - { role: sublimetext, tags: ['sublimetext'] }
