@@ -4,6 +4,11 @@
       name: sublime-text3
       state: present
 
+  - name: "Make sure Sublime Text preference folder exists"
+    file:
+      path: "~/Library/Application Support/Sublime Text 3/Packages/User"
+      state: directory
+
   - name: Set Sublime Text 3 general settings
     template:
       src: Preferences.sublime-settings.j2
