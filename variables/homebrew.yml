@@ -5,7 +5,7 @@
 
   homebrew_casks:
     - firefox
-    - chrome
+    - google-chrome
     - transmit
     - vlc
     - atom
