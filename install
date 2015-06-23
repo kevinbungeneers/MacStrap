@@ -40,6 +40,11 @@ Dir.chdir File.expand_path "~" do
   unless has 'brew'
     system "ruby -e \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)\""
   end
+
+  unless has 'ansible'
+    system "brew", "install", "ansible"
+  end
+
   system "git", "clone", MACSTRAP_REPO, ".macstrap"
   system "ansible-playbook", "macstrap.yml", "--ask-sudo-pass"
 end
