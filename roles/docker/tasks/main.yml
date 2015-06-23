@@ -5,6 +5,11 @@
       state: present
       update_homebrew: yes
 
+  - name: Create ~/Library/LaunchAgents directory
+    file:
+      path: "~/Library/LaunchAgents"
+      state: directory
+
   - name: Have boot2docker started at login
     copy:
       src: boot2docker.plist
