@@ -12,14 +12,14 @@
   - name: Set Sublime Text 3 PHP settings
     template:
       src: PHP.sublime-settings.j2
-      dest: "/Users/kevin/Library/Application Support/Sublime Text 3/Packages/User/PHP.sublime-settings"
+      dest: "~/Library/Application Support/Sublime Text 3/Packages/User/PHP.sublime-settings"
 
   - name: Set Sublime Text 3 JS settings
     template:
       src: Javascript.sublime-settings.j2
-      dest: "/Users/kevin/Library/Application Support/Sublime Text 3/Packages/User/Javascript.sublime-settings"
+      dest: "~/Library/Application Support/Sublime Text 3/Packages/User/Javascript.sublime-settings"
 
   - name: Set Sublime Text 3 CSS settings
     template:
       src: CSS.sublime-settings.j2
-      dest: "/Users/kevin/Library/Application Support/Sublime Text 3/Packages/User/CSS.sublime-settings"
+      dest: "~/Library/Application Support/Sublime Text 3/Packages/User/CSS.sublime-settings"
