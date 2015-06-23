@@ -1,0 +1,45 @@
+#!/System/Library/Frameworks/Ruby.framework/Versions/Current/usr/bin/ruby
+
+MACSTRAP_REPO = 'http://git.bungerous.be/kevin/MacStrap.git'
+
+module Tty extend self
+  def blue; bold 34; end
+  def white; bold 39; end
+  def red; underline 31; end
+  def reset; escape 0; end
+  def bold n; escape "1;#{n}" end
+  def underline n; escape "4;#{n}" end
+  def escape n; "\033[#{n}m" if STDOUT.tty? end
+end
+
+class Array
+  def shell_s
+    cp = dup
+    first = cp.shift
+    cp.map{ |arg| arg.gsub " ", "\\ " }.unshift(first) * " "
+  end
+end
+
+def tell *args
+  puts "#{Tty.blue}==>#{Tty.whie} #{args.shell_s}#{Tty.reset}"
+end
+
+def warn warning
+  puts "#{Tty.red}#{warning.chomp}#{Tty.reset}"
+end
+
+def system *args
+  abort "Failed during: #{args.shell_s}" unless Kernel.system(*args)
+end
+
+def has cmd
+  return Kernel.system "/usr/bin/which -s #{cmd}"
+end
+
+Dir.chdir File.expand_path "~" do
+  unless has 'brew'
+    system "ruby -e \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)\""
+  end
+  system git, "clone", MACSTRAP_REPO, ".macstrap"
+  system "ansible-playbook", "macstrap.yml", "--ask-sudo-pass"
+end
