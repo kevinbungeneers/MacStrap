@@ -1,4 +1,5 @@
 #!/System/Library/Frameworks/Ruby.framework/Versions/Current/usr/bin/ruby
+require 'fileutils'
 
 MACSTRAP_REPO = 'http://git.bungerous.be/kevin/MacStrap.git'
 
@@ -36,7 +37,14 @@ def has cmd
   return Kernel.system "/usr/bin/which -s #{cmd}"
 end
 
-Dir.chdir File.expand_path "~" do
+homedir = File.expand_path "~"
+installPath = "#{homedir}/.macstrap"
+
+unless File.directory?(installPath)
+  FileUtils.mkdir_p(installPath)
+end
+
+Dir.chdir installPath do
   unless has 'brew'
     system "ruby -e \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)\""
   end
@@ -45,6 +53,11 @@ Dir.chdir File.expand_path "~" do
     system "brew", "install", "ansible"
   end
 
-  system "git", "clone", MACSTRAP_REPO, ".macstrap"
+  system "git", "init", "-q"
+  system "git", "config", "remote.origin.url", MACSTRAP_REPO
+  system "git", "config", "remote.origin.fetch", "+refs/heads/*:refs/remotes/origin/*"
+  system "git", "fetch", "origin", "master:refs/remotes/origin/master", "-n"
+  system "git", "reset", "--hard", "origin/master"
+
   system "ansible-playbook", "macstrap.yml", "--ask-sudo-pass"
 end
