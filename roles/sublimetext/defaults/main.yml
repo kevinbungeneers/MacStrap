@@ -1,7 +1,7 @@
 ---
   # General Sublime settings
   sublime_general_preferences:
-    font_face: "Source Code Pro"
+    font_face: "Menlo"
     font_size: 14
     bold_folder_labels: true
     detect_identation: false
