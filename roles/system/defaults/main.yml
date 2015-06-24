@@ -80,6 +80,9 @@
     # Show the ~/Library folder
     - chflags nohidden ~/Library
 
+    # Use list view as the default
+    - defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
+
   osx_dock_settings:
     # Set the icon size of Dock items to 36 pixels
     - defaults write com.apple.dock tilesize -int 36
