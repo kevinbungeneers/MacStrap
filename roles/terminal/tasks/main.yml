@@ -9,5 +9,5 @@
 - name: Set default terminal theme
   shell: "{{ item }}"
   with_items:
-    - 'defaults write com.apple.Terminal "Startup Window Settings" -string {{ terminal_theme }}'
-    - 'defaults write com.apple.Terminal "Default Window Settings" -string {{ terminal_theme }}'
+    - defaults write com.apple.Terminal "Startup Window Settings" -string "{{ terminal_theme }}"
+    - defaults write com.apple.Terminal "Default Window Settings" -string "{{ terminal_theme }}"
