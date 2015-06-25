@@ -8,6 +8,7 @@
     with_items: osx_input_settings
 
   - name: Applying sharing settings
+    sudo: yes
     shell: "{{ item }}"
     with_items: osx_sharing_settings
 
