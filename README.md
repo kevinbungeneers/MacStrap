@@ -2,7 +2,7 @@
 MacStrap is a collection of Ansible roles to configure your Mac.
 
 ## Requirements
-You'll need to have your devtools or Xcode installed.
+If you're planning on just invoking `ansible-playbook macstrap.yml --ask-sudo-pass` you'll need to have Homebrew and Ansible installed. The oneliner, meant for setting things in motion after a fresh install, installs both of them for you.
 
 ## What's included?
 This is all very personal. If you choose to use MacStrap you'll probably end up forking this repo to make it your own.
@@ -25,5 +25,9 @@ Before kicking this thing in action it might be advisable to check out some of t
 
 After you've checked out the roles and made your adjustments, execute the following from within the directory:
 ```bash
-$ rake install
+$ ansible-playbook macstrap.yml --ask-sudo-pass
+```
+or, if you've just installed a fresh copy of OS X:
+```bash
+$ ruby -e "$(curl -fsSL http://git.bungerous.be/kevin/MacStrap/raw/master/install)"
 ```
