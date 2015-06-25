@@ -56,6 +56,10 @@
     # Disable spell checking
     - defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 
+    # Enable three finger drag
+    - defaults -currentHost write NSGlobalDomain com.apple.trackpad.threeFingerSwipeGesture -int 1
+
+
   osx_screen_settings:
     # Require password immediately after sleep or screen saver begins
     - defaults write com.apple.screensaver askForPassword -int 1
@@ -63,7 +67,7 @@
 
   osx_finder_settings:
     # Set home folder as the default location for new Finder windows
-    - defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}/"
+    - defaults write com.apple.finder NewWindowTarget -string "PfHm"
 
     # Finder: show status bar
     - defaults write com.apple.finder ShowStatusBar -bool true
@@ -88,17 +92,14 @@
 
     # Enable snap-to-grid for icons on the desktop and in other icon views
     - /usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
-    - /usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
     - /usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
 
     # Increase grid spacing for icons on the desktop and in other icon views
     - /usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:gridSpacing 68" ~/Library/Preferences/com.apple.finder.plist
-    - /usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:gridSpacing 68" ~/Library/Preferences/com.apple.finder.plist
     - /usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:gridSpacing 68" ~/Library/Preferences/com.apple.finder.plist
 
     # Increase the size of icons on the desktop and in other icon views
     - /usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:iconSize 48" ~/Library/Preferences/com.apple.finder.plist
-    - /usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:iconSize 48" ~/Library/Preferences/com.apple.finder.plist
     - /usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:iconSize 48" ~/Library/Preferences/com.apple.finder.plist
 
   osx_dock_settings:
@@ -116,6 +117,9 @@
 
     # Hide indicator lights for open applications in the Dock
     - defaults write com.apple.dock show-process-indicators -bool false
+
+    # Automatically hide and show the Dock
+    - defaults write com.apple.dock autohide -bool true
 
     # Don’t automatically rearrange Spaces based on most recent use
     - defaults write com.apple.dock mru-spaces -bool false
