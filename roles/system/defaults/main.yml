@@ -36,7 +36,7 @@
     - defaults write com.apple.dock showAppExposeGestureEnabled -bool true
 
     # Trackpad: set movement speed
-    - defaults write NSGlobalDomain com.apple.trackpad -float 3.0
+    - defaults write NSGlobalDomain com.apple.trackpad.scaling -int 3
 
     # Enable full keyboard access for all controls
     - defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
@@ -55,10 +55,6 @@
 
     # Disable spell checking
     - defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
-
-    # Enable three finger drag
-    - defaults -currentHost write NSGlobalDomain com.apple.trackpad.threeFingerSwipeGesture -int 1
-
 
   osx_screen_settings:
     # Require password immediately after sleep or screen saver begins
