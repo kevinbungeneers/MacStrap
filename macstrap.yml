@@ -12,6 +12,7 @@
 
     roles:
       - { role: system, tags: ['system'] }
+      - { role: ssh, tags: ['ssh'] }
       - { role: terminal, tags: ['terminal'] }
       - { role: zsh, tags: ['zsh'] }
       - { role: git, tags: ['git'] }
@@ -20,5 +21,4 @@
       - { role: sublimetext, tags: ['sublimetext'] }
       - { role: vagrant, tags: ['vagrant'] }
       - { role: docker, tags: ['docker'] }
-      - { role: ssh, tags: ['ssh'] }
       - { role: cleanup, tags: ['cleanup'] }
