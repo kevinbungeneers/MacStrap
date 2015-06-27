@@ -1,9 +1,12 @@
 ---
   - name: Install GIT
     homebrew:
-      name: git
+      name: "{{ item }}"
       state: present
       update_homebrew: yes
+    with_items:
+      - git
+      - git-flow
 
   - name: Set .gitconfig file
     template:
