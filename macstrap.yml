@@ -19,3 +19,4 @@
       - { role: vagrant, tags: ['vagrant'] }
       - { role: docker, tags: ['docker'] }
       - { role: ssh, tags: ['ssh'] }
+      - { role: cleanup, tags: ['cleanup'] }
