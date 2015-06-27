@@ -18,3 +18,4 @@
       - { role: sublimetext, tags: ['sublimetext'] }
       - { role: vagrant, tags: ['vagrant'] }
       - { role: docker, tags: ['docker'] }
+      - { role: ssh, tags: ['ssh'] }

@@ -1,0 +1,17 @@
+---
+  - name: Check for .ssh folder in iCloud drive
+    stat:
+      path: "~/Library/Mobile Documents/com~apple~CloudDocs/.ssh"
+    register: ssh_path
+
+  - name: Symlink .ssh folder with the one in iCloud drive
+    file:
+      path: ~/.ssh
+      src: "~/Library/Mobile Documents/com~apple~CloudDocs/.ssh"
+      state: link
+      mode: 700
+    when: ssh_path.stat.exists
+
+  - name: Fix permissions
+    command: "find ~/.ssh -type f -not -name '*.pub' -exec chmod 600 {} \\;"
+    when: ssh_path.stat.exists
