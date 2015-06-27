@@ -14,9 +14,9 @@
       path: ~/.ssh
       src: "~/Library/Mobile Documents/com~apple~CloudDocs/.ssh"
       state: link
-      mode: 700
     when: ssh_cloud_path.stat.exists == True and ssh_home_path.stat.exists == False
+    register: symlinked_ssh
 
   - name: Fix permissions
-    command: "find ~/.ssh -type f -not -name '*.pub' -exec chmod 600 {} \\;"
-    when: ssh_cloud_path.stat.exists == True and ssh_home_path.stat.exists == False
+    command: "find ~/.ssh/ -type f -not -name '*.pub' -exec chmod 600 {} \\;"
+    when: symlinked_ssh|changed
