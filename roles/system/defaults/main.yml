@@ -56,6 +56,19 @@
     # Disable spell checking
     - defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 
+    # Enable three finger drag
+    - defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerDrag -bool true
+    - defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerHorizSwipeGesture -int 0
+    - defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerVertSwipeGesture -int 0
+
+    - defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerDrag -bool true
+    - defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerHorizSwipeGesture -int 0
+    - defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerVertSwipeGesture -int 0
+
+    - defaults -currentHost write NSGlobalDomain com.apple.trackpad.threeFingerDragGesture -bool true
+    - defaults -currentHost write NSGlobalDomain com.apple.trackpad.threeFingerVertSwipeGesture -int 0
+    - defaults -currentHost write NSGlobalDomain com.apple.trackpad.threeFingerHorizSwipeGesture -int 0
+
   osx_screen_settings:
     # Require password immediately after sleep or screen saver begins
     - defaults write com.apple.screensaver askForPassword -int 1
