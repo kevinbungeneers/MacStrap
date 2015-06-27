@@ -1,0 +1,9 @@
+---
+  - name: Install Atom
+    homebrew_cask:
+      name: atom
+      state: present
+
+  - name: Install Atom packages
+    shell: "apm install {{ item }}"
+    with_items: atom_packages

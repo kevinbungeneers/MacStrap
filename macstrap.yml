@@ -8,6 +8,7 @@
       - variables/git.yml
       - variables/homebrew.yml
       - variables/vagrant.yml
+      - variables/atom.yml
 
     roles:
       - { role: system, tags: ['system'] }
@@ -15,6 +16,7 @@
       - { role: zsh, tags: ['zsh'] }
       - { role: git, tags: ['git'] }
       - { role: homebrew, tags: ['homebrew'] }
+      - { role: atom, tags: ['atom'] }
       - { role: sublimetext, tags: ['sublimetext'] }
       - { role: vagrant, tags: ['vagrant'] }
       - { role: docker, tags: ['docker'] }
