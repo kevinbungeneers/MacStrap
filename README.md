@@ -8,11 +8,14 @@ If you're planning on just invoking `ansible-playbook macstrap.yml --ask-sudo-pa
 This is all very personal. If you choose to use MacStrap you'll probably end up forking this repo to make it your own.
 
 My setup contains:
-* ZSH (with prezto)
+* ZSH (with [prezto](https://github.com/kevinbungeneers/prezto))
 * boot2docker with docker-compose
 * Sublime Text 3
+* Atom
+* Virtualbox
 * Vagrant
 * Packer
+* ...
 * Fancy tweaks
 * More fancy tweaks
 
@@ -29,5 +32,5 @@ $ ansible-playbook macstrap.yml --ask-sudo-pass
 ```
 or, if you've just installed a fresh copy of OS X:
 ```bash
-$ ruby -e "$(curl -fsSL http://git.bungerous.be/kevin/MacStrap/raw/master/install)"
+$ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/kevinbungeneers/MacStrap/master/install)"
 ```
