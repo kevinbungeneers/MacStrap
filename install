@@ -1,7 +1,7 @@
 #!/System/Library/Frameworks/Ruby.framework/Versions/Current/usr/bin/ruby
 require 'fileutils'
 
-MACSTRAP_REPO = 'http://git.bungerous.be/kevin/MacStrap.git'
+MACSTRAP_REPO = 'https://github.com/kevinbungeneers/MacStrap.git'
 
 module Tty extend self
   def blue; bold 34; end
