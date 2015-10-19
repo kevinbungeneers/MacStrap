@@ -1,9 +1,24 @@
 ---
+  - name: Download Atom
+    get_url:
+      url: https://atom.io/download/mac
+      dest: /tmp/atom.zip
+
   - name: Install Atom
-    homebrew_cask:
-      name: atom
-      state: present
+    shell: "unzip /tmp/atom.zip -d /Applications"
+
+  - name: Install Atom command
+    file:
+      src: /Applications/Atom.app/Contents/Resources/app/atom.sh
+      dest: /usr/local/bin/atom
+      state: link
+
+  - name: Install APM command
+    file:
+      src: /Applications/Atom.app/Contents/Resources/app/apm/bin/apm
+      dest: /usr/local/bin/apm
+      state: link
 
   - name: Install Atom packages
-    shell: "apm install {{ item }}"
+    shell: "/usr/local/bin/apm install {{ item }}"
     with_items: atom_packages

@@ -1,8 +1,25 @@
 ---
+  - name: Download Sublime Text 3 image
+    get_url:
+      url: "http://c758482.r82.cf2.rackcdn.com/Sublime%20Text%20{{ sublimetext_build|replace(' ', '%20') }}.dmg"
+      dest: /tmp/SublimeText.dmg
+
+  - name: Mount Sublime Text 3 image
+    command: "hdiutil attach SublimeText.dmg"
+    args:
+      chdir: /tmp
+
   - name: Install Sublime Text 3
-    homebrew_cask:
-      name: sublime-text3
-      state: present
+    command: cp -R /Volumes/Sublime\ Text/Sublime\ Text.app /Applications
+
+  - name: Install 'subl' command
+    file:
+      src: "/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
+      dest: /usr/local/bin/subl
+      state: link
+
+  - name: Unmount Sublime Text 3 image
+    command: hdiutil detach /Volumes/Sublime\ Text
 
   - name: "Make sure Sublime Text preference folder exists"
     file:

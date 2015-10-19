@@ -1,8 +1,20 @@
 ---
+  - name: Download Vagrant image
+    get_url:
+      url: "https://dl.bintray.com/mitchellh/vagrant/vagrant_{{ vagrant_version }}.dmg"
+      dest: /tmp
+
+  - name: Mount Vagrant image
+    command: "hdiutil attach vagrant_{{ vagrant_version }}.dmg"
+    args:
+      chdir: /tmp
+
   - name: Install Vagrant
-    homebrew_cask:
-      name: vagrant
-      state: present
+    command: "installer -pkg /Volumes/Vagrant/Vagrant.pkg -target {{ install_target }}"
+    sudo: yes
+
+  - name: Unmount Vagrant image
+    command: "hdiutil detach /Volumes/Vagrant"
 
   - name: Install Vagrant plugins
     shell: "vagrant plugin install {{ item }}"
