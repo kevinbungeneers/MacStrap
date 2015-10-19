@@ -1,12 +1,4 @@
 ---
-  - name: Tap Homebrew cask
-    homebrew_tap:
-      name: caskroom/cask
-
-  - name: Tap Homebrew cask versions
-    homebrew_tap:
-      name: caskroom/versions
-
   - name: Tap extra repositories
     homebrew_tap:
       tap: "{{ item }}"
@@ -19,15 +11,3 @@
       state: present
       update_homebrew: yes
     with_items: homebrew_packages
-
-  - name: Install Homebrew cask
-    homebrew:
-      name: brew-cask
-      state: present
-      update_homebrew: yes
-
-  - name: Install Homebrew casks
-    homebrew_cask:
-      name: "{{ item }}"
-      state: present
-    with_items: homebrew_casks

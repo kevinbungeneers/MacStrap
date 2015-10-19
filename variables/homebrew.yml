@@ -2,15 +2,3 @@
   homebrew_packages:
     - htop-osx
     - packer
-
-  homebrew_casks:
-    - firefox
-    - google-chrome
-    - transmit
-    - transmission
-    - vlc
-    - virtualbox
-    - vmware-fusion
-
-  homebrew_taps:
-    - homebrew/binary
