@@ -1,0 +1,8 @@
+---
+  - name: Download Alfred
+    get_url:
+      url: "https://cachefly.alfredapp.com/Alfred_{{ alfred_version }}.zip"
+      dest: /tmp/Alfred.zip
+
+  - name: Install Alfred
+    shell: "unzip /tmp/Alfred.zip -d /Applications"
