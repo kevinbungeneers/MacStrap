@@ -1,0 +1,16 @@
+---
+  - name: Download Firefox image
+    get_url:
+      url: "https://ftp.mozilla.org/pub/firefox/releases/{{ firefox_version }}/mac/en-US/Firefox%20{{ firefox_version }}.dmg"
+      dest: /tmp/Firefox.dmg
+
+  - name: Mount Firefox image
+    command: "hdiutil attach Firefox.dmg"
+    args:
+      chdir: /tmp
+
+  - name: Install Firefox
+    command: cp -pR /Volumes/Firefox/Firefox.app /Applications
+
+  - name: Unmount Firefox image
+    command: hdiutil detach /Volumes/Firefox
